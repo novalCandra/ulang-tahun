@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameSection = document.getElementById('name-section');
     const gameSection = document.getElementById('game-section');
     const revealSection = document.getElementById('reveal-section');
+    const gallerySection = document.getElementById('gallery-section');
     
     const nameInput = document.getElementById('name-input');
     const startBtn = document.getElementById('start-btn');
@@ -12,8 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameArea = document.getElementById('game-area');
     const scoreBar = document.getElementById('score-bar');
     const scoreText = document.getElementById('score-text');
+    
+    const viewPhotosBtn = document.getElementById('view-photos-btn');
+    const backToRevealBtn = document.getElementById('back-to-reveal-btn');
     // --- State ---
     let userName = '';
+    let isGameStarted = false;
     let score = 0;
     const targetScore = 10;
     let gameInterval;
@@ -29,12 +34,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') startGameFlow();
     });
 
-    function startGameFlow() {
-        userName = nameInput.value.trim() || 'Beautiful';
-        
-        // Update name everywhere
-        userNames.forEach(el => el.textContent = userName);
+    // --- Gallery Navigation ---
+    viewPhotosBtn.addEventListener('click', () => {
+        switchSection(revealSection, gallerySection);
+    });
 
+    backToRevealBtn.addEventListener('click', () => {
+        switchSection(gallerySection, revealSection);
+    });
+
+    function startGameFlow() {
+        if (isGameStarted) return;
+        isGameStarted = true;
+        
+        userName = nameInput.value.trim() || 'Kamu';
+        
+        // Update name everywhere dynamically
+        const nameElements = document.querySelectorAll('.user-name');
+        nameElements.forEach(el => {
+            el.innerText = userName;
+        });
 
         switchSection(nameSection, gameSection);
         setTimeout(startGame, 800);

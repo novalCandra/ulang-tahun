@@ -300,7 +300,8 @@ input[type="text"]:focus {
 }
 
 .highlight {
-    color: var(--primary-color);
+    color: #ff7675; /* A bit more vibrant so it's readable */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 
 .reveal-message {
@@ -380,4 +381,77 @@ input[type="text"]:focus {
     .game-header h2 {
         font-size: 1.2rem;
     }
+    .gallery-title {
+        font-size: 2rem;
+    }
+}
+
+/* Gallery Section */
+#gallery-section {
+    background: var(--bg-gradient);
+    align-items: flex-start;
+    padding: 60px 20px;
+    overflow-y: auto;
+}
+
+.gallery-content {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.gallery-title {
+    font-size: 2.5rem;
+    color: #4a4a4a;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.photo-card {
+    width: 240px;
+    background: white;
+    padding: 12px 12px 20px 12px;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transform: rotate(calc(var(--rot, 0) * 1deg));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #eaeaea;
+}
+
+.photo-card:nth-child(4n+1) { --rot: -3; }
+.photo-card:nth-child(4n+2) { --rot: 2; }
+.photo-card:nth-child(4n+3) { --rot: -2; }
+.photo-card:nth-child(4n+4) { --rot: 4; }
+
+.photo-card:hover {
+    transform: scale(1.05) rotate(0deg);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+.photo-card img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    background: #f0f0f0;
+}
+
+.photo-card p {
+    color: #555;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 600;
 }
