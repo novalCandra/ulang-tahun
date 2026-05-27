@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <meta name="description" content="A cute, interactive birthday experience.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Music -->
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="section active">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- Section 1: Name Input -->
+    <div id="name-section" class="section hidden">
+        <div class="card">
+            <img src="assets/cake.png" alt="Cute Cake" class="cake-img">
+            <h1>Siapa yang ulang tahun?</h1>
+            <p>Masukin nama lu</p>
+            <div class="input-group">
+                <input type="text" id="name-input" placeholder="nama muh" autocomplete="off">
+                <button id="start-btn" class="primary-btn">Let's Go ✨</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Mini Game -->
+    <div id="game-section" class="section hidden">
+        <div class="game-header">
+            <h2>Catch the falling stars, <span class="user-name"></span>!</h2>
+            <div class="progress-container">
+                <div id="score-bar" class="progress-bar"></div>
+            </div>
+            <p id="score-text">0 / 10</p>
+        </div>
+        <div id="game-area"></div>
+    </div>
+
+    <!-- Section 3: Birthday Reveal -->
+    <div id="reveal-section" class="section hidden">
+        <div class="reveal-content">
+            <h1 class="reveal-title">Happy Birthday, <br><span class="user-name highlight"></span>! 🎉</h1>
+            <p class="reveal-message">Selamat ulang tahun, Kawan! Udah makin tua aja lu ya. Inget, umur tuh cuma angka, tapi kalau kerutan di jidat sama tulang bunyi 'krek' pas berdiri... nah itu baru fakta wkwkwk. Sukses terus! 👴/👵</p>
+            <div class="hearts-container" id="hearts-container"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
